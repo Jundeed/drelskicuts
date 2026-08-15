@@ -32,7 +32,6 @@
             padding: 0 2rem;
         }
 
-        /* ----- NAVIGATION ----- */
         .navbar {
             display: flex;
             justify-content: space-between;
@@ -76,7 +75,6 @@
             border-bottom-color: #b99b6b;
         }
 
-        /* page content */
         .page {
             display: none;
             padding: 2.5rem 0 4rem;
@@ -91,7 +89,6 @@
             100% { opacity: 1; transform: translateY(0); }
         }
 
-        /* ----- HERO (page 1) ----- */
         .hero {
             display: flex;
             flex-wrap: wrap;
@@ -154,7 +151,6 @@
             object-fit: cover;
         }
 
-        /* ---- instagram section (page 2) ---- */
         .section-title {
             font-size: 2.2rem;
             font-weight: 700;
@@ -203,18 +199,14 @@
             transition: 0.25s;
             border: 1px solid #2b2824;
             box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+            text-decoration: none !important;
+            color: inherit !important;
+            display: block;
         }
         .insta-card:hover {
             transform: translateY(-6px);
             border-color: #b99b6b;
             box-shadow: 0 16px 36px rgba(0,0,0,0.8);
-        }
-        .insta-card img {
-            width: 100%;
-            aspect-ratio: 1 / 1;
-            object-fit: cover;
-            background: #2f2a24;
-            display: block;
         }
         .insta-card .card-body {
             padding: 1rem 1rem 1.2rem;
@@ -230,15 +222,35 @@
         }
         .insta-card .card-body .meta {
             display: flex;
-            justify-content: space-between;
+            justify-content: flex-start;
             color: #7f776b;
             font-size: 0.8rem;
         }
         .insta-card .card-body .meta i {
-            margin-right: 4px;
+            margin-right: 6px;
+        }
+        .reel-thumb {
+            aspect-ratio: 1/1;
+            background: #1f1d1a;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-radius: 24px 24px 0 0;
+            border-bottom: 2px solid #2b2824;
+        }
+        .reel-thumb i {
+            font-size: 4rem;
+            color: #c9a86c;
+            opacity: 0.9;
+            margin-bottom: 0.5rem;
+        }
+        .reel-thumb span {
+            color: #7f776b;
+            font-size: 0.75rem;
+            letter-spacing: 0.5px;
         }
 
-        /* --- contact page (page 3) --- */
         .contact-wrapper {
             display: flex;
             flex-wrap: wrap;
@@ -344,7 +356,6 @@
             color: #0b0b0b;
         }
 
-        /* --- payment page (page 4) --- */
         .payment-grid {
             display: flex;
             flex-wrap: wrap;
@@ -400,7 +411,6 @@
             font-size: 1.3rem;
         }
 
-        /* footer */
         .footer {
             border-top: 1px solid #25221e;
             padding: 2rem 0;
@@ -443,7 +453,6 @@
             width: 1.4rem;
         }
 
-        /* responsive */
         @media (max-width: 700px) {
             .navbar { flex-direction: column; gap: 1rem; align-items: flex-start; }
             .nav-links { gap: 1rem; }
@@ -455,7 +464,6 @@
 <body>
     <div class="container">
 
-        <!-- navigation / 4 pages -->
         <nav class="navbar">
             <div class="logo"><i class="fas fa-cut"></i> Drelski</div>
             <div class="nav-links">
@@ -475,10 +483,10 @@
                     <a href="#" class="btn" onclick="switchPage('contact')"><i class="fas fa-calendar-check" style="margin-right: 8px;"></i> Book appointment</a>
                 </div>
                 <div class="hero-image">
-                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%23231f1a'/%3E%3Ccircle cx='200' cy='120' r='44' fill='%233d352c'/%3E%3Crect x='140' y='170' width='120' height='60' rx='30' fill='%234a3f34'/%3E%3Crect x='180' y='230' width='40' height='50' fill='%233d352c'/%3E%3Ccircle cx='270' cy='120' r='18' fill='%23534a3e'/%3E%3Ccircle cx='130' cy='120' r='18' fill='%23534a3e'/%3E%3C/svg%3E" alt="Barber chair illustration">
+                    <!-- 👇 REPLACE src with your hero image URL if needed -->
+                    <img id="heroImage" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%23231f1a'/%3E%3Ccircle cx='200' cy='120' r='44' fill='%233d352c'/%3E%3Crect x='140' y='170' width='120' height='60' rx='30' fill='%234a3f34'/%3E%3Crect x='180' y='230' width='40' height='50' fill='%233d352c'/%3E%3Ccircle cx='270' cy='120' r='18' fill='%23534a3e'/%3E%3Ccircle cx='130' cy='120' r='18' fill='%23534a3e'/%3E%3C/svg%3E" alt="Barber chair">
                 </div>
             </div>
-            <!-- service badges -->
             <div class="info-badge">
                 <div><i class="fas fa-user"></i> Solo barber</div>
                 <div><i class="fas fa-home"></i> In-home or studio service</div>
@@ -487,7 +495,7 @@
             </div>
         </div>
 
-        <!-- PAGE 2: INSTAGRAM FEED -->
+        <!-- PAGE 2: INSTAGRAM FEED (ALL REELS, NO STOCK IMAGES) -->
         <div id="instagram" class="page">
             <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center;">
                 <h2 class="section-title"><i class="fab fa-instagram"></i> Portfolio</h2>
@@ -498,11 +506,10 @@
                     </a>
                 </div>
             </div>
-            <p style="color: #a09889; margin-bottom: 2rem;">Recent work from the chair. Follow for daily updates and booking info.</p>
+            <p style="color: #a09889; margin-bottom: 2rem;">Recent work from the chair. Click any reel to watch on Instagram.</p>
 
-            <!-- Instagram grid – posts displayed with placeholder images -->
             <div class="insta-grid" id="instaGrid">
-                <!-- cards injected by JS -->
+                <!-- Reels injected by JavaScript -->
             </div>
             <div style="text-align: center; margin-top: 2.5rem;">
                 <a href="https://instagram.com/drelskicutz" target="_blank" rel="noopener noreferrer" class="btn" style="background: transparent; border: 1px solid #b99b6b; color: #b99b6b; box-shadow: none;">
@@ -511,11 +518,10 @@
             </div>
         </div>
 
-        <!-- PAGE 3: PAYMENT & PRICING -->
+        <!-- PAGE 3: PAYMENT -->
         <div id="payment" class="page">
             <h2 class="section-title"><i class="fas fa-credit-card"></i> Payment & Pricing</h2>
             <p style="color: #a09889; margin-bottom: 0.5rem;">Simple, transparent pricing. House calls available.</p>
-            
             <div class="payment-grid">
                 <div class="payment-card">
                     <div class="icon-large"><i class="fas fa-dollar-sign"></i></div>
@@ -573,7 +579,64 @@
     </div>
 
     <script>
-        // ---------- PAGE SWITCHING ----------
+        // ================================================================
+        // 📸 HERO IMAGE (optional – replace with your own URL)
+        // ================================================================
+        const heroImageUrl = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%23231f1a'/%3E%3Ccircle cx='200' cy='120' r='44' fill='%233d352c'/%3E%3Crect x='140' y='170' width='120' height='60' rx='30' fill='%234a3f34'/%3E%3Crect x='180' y='230' width='40' height='50' fill='%233d352c'/%3E%3Ccircle cx='270' cy='120' r='18' fill='%23534a3e'/%3E%3Ccircle cx='130' cy='120' r='18' fill='%23534a3e'/%3E%3C/svg%3E";
+
+        // ================================================================
+        // 🎬 INSTAGRAM REELS – all 9 links you provided
+        // ================================================================
+        const reels = [
+            { url: 'https://www.instagram.com/reel/Db-ASNDuK_Q/', caption: 'Yk I keep it clean 🧼 #haircut #viral #omaha' },
+            { url: 'https://www.instagram.com/reel/DbRrggEtjsp/', caption: 'Bday cut 🥳 #haircut #viral #omaha #midtaper' },
+            { url: 'https://www.instagram.com/reel/DbKhDwuOVf9/', caption: '5 cutzzz #haircut #viral #omaha #midtaper #burstfade' },
+            { url: 'https://www.instagram.com/reel/DazKjtMN6BJ/', caption: 'Spice ball #haircut #viral #omaha' },
+            { url: 'https://www.instagram.com/reel/DaE3a-ztKdA/', caption: 'Cool lil 10 guard with a high taper. 💈 #haircut #viral #omaha' },
+            { url: 'https://www.instagram.com/reel/DZMius-Mb4h/', caption: 'Bro is not white 😔 #haircut #viral #midtaper' },
+            { url: 'https://www.instagram.com/reel/DWH3uJgOalp/', caption: 'Dark hook >> #haircut #viral #omaha #midtaper' },
+            { url: 'https://www.instagram.com/reel/DSURRyzDhYA/', caption: 'Fresh cut alert 🔥 #haircut #viral' },
+            { url: 'https://www.instagram.com/reel/DQQWboBDQfM/', caption: 'Busy 🤕 #haircut #viral #omaha' }
+        ];
+
+        // ================================================================
+        // 🚀 RENDER EVERYTHING
+        // ================================================================
+
+        // Apply hero image
+        document.addEventListener('DOMContentLoaded', function() {
+            const heroImg = document.getElementById('heroImage');
+            if (heroImg) heroImg.src = heroImageUrl;
+
+            // Render Instagram Reels
+            const grid = document.getElementById('instaGrid');
+            if (grid) {
+                reels.forEach(reel => {
+                    const card = document.createElement('a');
+                    card.className = 'insta-card';
+                    card.href = reel.url;
+                    card.target = '_blank';
+                    card.rel = 'noopener noreferrer';
+                    card.innerHTML = `
+                        <div class="reel-thumb">
+                            <i class="fas fa-play-circle"></i>
+                            <span><i class="fab fa-instagram"></i> Watch reel</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="caption">${reel.caption}</div>
+                            <div class="meta">
+                                <span><i class="fas fa-external-link-alt"></i> Open in Instagram</span>
+                            </div>
+                        </div>
+                    `;
+                    grid.appendChild(card);
+                });
+            }
+        });
+
+        // ================================================================
+        // 📄 PAGE SWITCHING
+        // ================================================================
         const pages = document.querySelectorAll('.page');
         const navLinks = document.querySelectorAll('.nav-links a');
 
@@ -599,36 +662,8 @@
             });
         });
 
+        // Make switchPage globally accessible for inline onclick
         window.switchPage = switchPage;
-
-        // ---------- INSTAGRAM FEED: posts with reliable picsum images ----------
-        const posts = [
-            { seed: 'barber1', caption: 'Precision skin fade • razor sharp finish', likes: 142, comments: 18 },
-            { seed: 'barber2', caption: 'Lineup & beard trim • clean execution', likes: 98, comments: 9 },
-            { seed: 'barber3', caption: 'Modern mullet • textured flow', likes: 215, comments: 24 },
-            { seed: 'barber4', caption: 'Classic taper • VIP client session', likes: 176, comments: 12 },
-            { seed: 'barber5', caption: 'Mid drop fade • crispy detail', likes: 132, comments: 8 },
-            { seed: 'barber6', caption: 'Buzz cut • summer ready refresh', likes: 87, comments: 5 }
-        ];
-
-        const grid = document.getElementById('instaGrid');
-        if (grid) {
-            posts.forEach(post => {
-                const card = document.createElement('div');
-                card.className = 'insta-card';
-                card.innerHTML = `
-                    <img src="https://picsum.photos/seed/${post.seed}/300/300" alt="Barber work by Drelski" loading="lazy">
-                    <div class="card-body">
-                        <div class="caption">${post.caption}</div>
-                        <div class="meta">
-                            <span><i class="fas fa-heart" style="color: #c47f6b;"></i> ${post.likes}</span>
-                            <span><i class="fas fa-comment"></i> ${post.comments}</span>
-                        </div>
-                    </div>
-                `;
-                grid.appendChild(card);
-            });
-        }
     </script>
 </body>
 </html>
