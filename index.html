@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Drelski Cuts · Barber</title>
+    <title>Drelski Cuts · Mobile Barber Omaha</title>
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- Google Fonts: modern sans-serif -->
+    <!-- Google Fonts: Inter for a clean, professional look -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
     <style>
         * {
@@ -22,7 +22,6 @@
             line-height: 1.5;
         }
 
-        /* scrollbar styling */
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #1a1a1a; }
         ::-webkit-scrollbar-thumb { background: #b99b6b; border-radius: 12px; }
@@ -33,7 +32,7 @@
             padding: 0 2rem;
         }
 
-        /* ----- NAVIGATION (3 pages via tabs) ----- */
+        /* ----- NAVIGATION ----- */
         .navbar {
             display: flex;
             justify-content: space-between;
@@ -72,10 +71,6 @@
             border-bottom: 2px solid transparent;
         }
         .nav-links a:hover, .nav-links a.active {
-            color: #f0e6d8;
-            border-bottom-color: #b99b6b;
-        }
-        .nav-links a.active {
             color: #f0e6d8;
             border-bottom-color: #b99b6b;
         }
@@ -119,7 +114,7 @@
             font-size: 1.1rem;
             color: #b0a89b;
             margin: 1.2rem 0 2rem;
-            max-width: 480px;
+            max-width: 520px;
         }
         .btn {
             display: inline-block;
@@ -188,6 +183,11 @@
             text-decoration: none;
             font-weight: 600;
             border-bottom: 1px dashed #b99b6b;
+            transition: 0.2s;
+        }
+        .insta-handle a:hover {
+            color: #f5edd9;
+            border-bottom-color: #e0c68a;
         }
         .insta-grid {
             display: grid;
@@ -357,6 +357,27 @@
             margin: 0 4px;
         }
 
+        .info-badge {
+            display: flex;
+            gap: 2.5rem;
+            flex-wrap: wrap;
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #28231e;
+        }
+        .info-badge div {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            color: #bcb2a2;
+            font-weight: 500;
+        }
+        .info-badge i {
+            color: #c9a86c;
+            font-size: 1.1rem;
+            width: 1.4rem;
+        }
+
         /* responsive */
         @media (max-width: 700px) {
             .navbar { flex-direction: column; gap: 1rem; align-items: flex-start; }
@@ -382,76 +403,77 @@
         <div id="home" class="page active">
             <div class="hero">
                 <div class="hero-content">
-                    <h1>Sharp cuts,<br><span>clean vibes.</span></h1>
-                    <p>Premium barbering with a modern touch. Book your next fade, beard trim, or style refresh.</p>
-                    <a href="#" class="btn" onclick="switchPage('contact')"><i class="fas fa-calendar-check" style="margin-right: 8px;"></i> Get in touch</a>
+                    <h1>Precision cuts.<br><span>Mobile service.</span></h1>
+                    <p>Sharp, clean cuts tailored to you. Solo barber based in Omaha, NE — I come to your home or host you at my private studio. Book your session today.</p>
+                    <a href="#" class="btn" onclick="switchPage('contact')"><i class="fas fa-calendar-check" style="margin-right: 8px;"></i> Book appointment</a>
                 </div>
                 <div class="hero-image">
-                    <!-- placeholder image matching aesthetic: barber chair / tools -->
-                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%23231f1a'/%3E%3Ccircle cx='200' cy='120' r='44' fill='%233d352c'/%3E%3Crect x='140' y='170' width='120' height='60' rx='30' fill='%234a3f34'/%3E%3Crect x='180' y='230' width='40' height='50' fill='%233d352c'/%3E%3Ccircle cx='270' cy='120' r='18' fill='%23534a3e'/%3E%3Ccircle cx='130' cy='120' r='18' fill='%23534a3e'/%3E%3C/svg%3E"
-                         alt="Barber chair illustration" style="background: #1f1b17;">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%23231f1a'/%3E%3Ccircle cx='200' cy='120' r='44' fill='%233d352c'/%3E%3Crect x='140' y='170' width='120' height='60' rx='30' fill='%234a3f34'/%3E%3Crect x='180' y='230' width='40' height='50' fill='%233d352c'/%3E%3Ccircle cx='270' cy='120' r='18' fill='%23534a3e'/%3E%3Ccircle cx='130' cy='120' r='18' fill='%23534a3e'/%3E%3C/svg%3E" alt="Barber chair illustration">
                 </div>
             </div>
-            <!-- quick info -->
-            <div style="display: flex; gap: 2rem; flex-wrap: wrap; margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid #28231e;">
-                <div><i class="fas fa-scissors" style="color: #c9a86c; margin-right: 10px;"></i> Precision fades</div>
-                <div><i class="fas fa-hot-tub" style="color: #c9a86c; margin-right: 10px;"></i> Hot towel shaves</div>
-                <div><i class="fas fa-wifi" style="color: #c9a86c; margin-right: 10px;"></i> Walk-ins welcome</div>
+            <!-- service badges -->
+            <div class="info-badge">
+                <div><i class="fas fa-calendar-check"></i> By appointment only</div>
+                <div><i class="fas fa-home"></i> In-home or mobile service</div>
+                <div><i class="fas fa-cut"></i> Precision fades &amp; trims</div>
+                <div><i class="fas fa-map-pin"></i> Omaha, Nebraska</div>
             </div>
         </div>
 
         <!-- PAGE 2: INSTAGRAM FEED -->
         <div id="instagram" class="page">
             <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center;">
-                <h2 class="section-title"><i class="fab fa-instagram"></i> From the chair</h2>
+                <h2 class="section-title"><i class="fab fa-instagram"></i> Portfolio</h2>
                 <div class="insta-handle">
-                    <i class="fas fa-at"></i> <a href="#" target="_blank">@drelskicuts</a>
+                    <i class="fas fa-at"></i> 
+                    <a href="https://instagram.com/drelskicuts" target="_blank" rel="noopener noreferrer">
+                        @drelskicuts <i class="fas fa-external-link-alt" style="font-size: 0.7rem; margin-left: 4px;"></i>
+                    </a>
                 </div>
             </div>
-            <p style="color: #a09889; margin-bottom: 2rem;">Fresh cuts, real moments — pulled straight from the feed.</p>
+            <p style="color: #a09889; margin-bottom: 2rem;">Recent work from the chair. Follow for daily updates and booking info.</p>
 
-            <!-- Instagram grid – posts pulled from @drelskicuts (simulated) -->
+            <!-- Instagram grid – posts displayed with real placeholder images -->
             <div class="insta-grid" id="instaGrid">
-                <!-- each card will be filled by JS with demo posts that match the vibe -->
+                <!-- cards injected by JS -->
             </div>
             <div style="text-align: center; margin-top: 2.5rem;">
-                <a href="#" class="btn" style="background: transparent; border: 1px solid #b99b6b; color: #b99b6b; box-shadow: none;" 
-                   onclick="alert('Follow @drelskicuts on Instagram for the latest!')">
-                   <i class="fab fa-instagram"></i> Follow @drelskicuts
+                <a href="https://instagram.com/drelskicuts" target="_blank" rel="noopener noreferrer" class="btn" style="background: transparent; border: 1px solid #b99b6b; color: #b99b6b; box-shadow: none;">
+                    <i class="fab fa-instagram"></i> Follow @drelskicuts
                 </a>
             </div>
         </div>
 
-        <!-- PAGE 3: CONTACT (blank except info we can fill) -->
+        <!-- PAGE 3: CONTACT -->
         <div id="contact" class="page">
             <h2 class="section-title"><i class="fas fa-address-card"></i> Contact</h2>
-            <p style="color: #a09889; margin-bottom: 0.5rem;">Reach out or stop by — we’ll leave the rest blank for now.</p>
+            <p style="color: #a09889; margin-bottom: 0.5rem;">Reach out to book your appointment. Mobile service available across Omaha.</p>
             <div class="contact-wrapper">
                 <div class="contact-info">
                     <h3>Drelski Cuts</h3>
-                    <div class="detail"><i class="fas fa-map-pin"></i> <span>📍 123 Barber Lane, Suite B</span></div>
+                    <div class="detail"><i class="fas fa-map-pin"></i> <span>📍 Omaha, Nebraska</span></div>
                     <div class="detail"><i class="fas fa-phone-alt"></i> <span>📞 +1 (555) 000-0000</span></div>
                     <div class="detail"><i class="fas fa-envelope"></i> <span>✉️ info@drelskicuts.com</span></div>
                     <div class="social-links">
-                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="https://instagram.com/drelskicuts" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
                         <a href="#"><i class="fab fa-tiktok"></i></a>
                         <a href="#"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
                 <div class="contact-form-placeholder">
-                    <h3>Leave a message</h3>
-                    <p>We’ll get back to you — form fields are placeholders.</p>
+                    <h3>Request a session</h3>
+                    <p>Fill out the details and I'll get back to you shortly.</p>
                     <div class="input-group"><i class="fas fa-user"></i><input type="text" placeholder="Name" value=""></div>
                     <div class="input-group"><i class="fas fa-envelope"></i><input type="email" placeholder="Email" value=""></div>
-                    <div class="input-group"><i class="fas fa-comment"></i><textarea placeholder="Your message..."></textarea></div>
-                    <button class="btn-outline" style="cursor: default;">Send (demo)</button>
-                    <p style="font-size: 0.8rem; margin-top: 1.2rem; color:#6a635a;"><i class="fas fa-info-circle"></i> Contact info filled, form not active.</p>
+                    <div class="input-group"><i class="fas fa-comment"></i><textarea placeholder="Preferred date, location, and service..."></textarea></div>
+                    <button class="btn-outline" style="cursor: default;">Send inquiry (demo)</button>
+                    <p style="font-size: 0.8rem; margin-top: 1.2rem; color:#6a635a;"><i class="fas fa-info-circle"></i> Contact form is a placeholder — reach out directly via Instagram or phone.</p>
                 </div>
             </div>
         </div>
 
         <footer class="footer">
-            <i class="fas fa-cut"></i> Drelski Cuts · modern barber · <i class="fab fa-instagram"></i> @drelskicuts
+            <i class="fas fa-cut"></i> Drelski Cuts · Mobile Barber · Omaha, NE · <i class="fab fa-instagram"></i> <a href="https://instagram.com/drelskicuts" target="_blank" rel="noopener noreferrer" style="color: #b99b6b; text-decoration: none;">@drelskicuts</a>
         </footer>
     </div>
 
@@ -461,19 +483,16 @@
         const navLinks = document.querySelectorAll('.nav-links a');
 
         function switchPage(pageId) {
-            // update pages
             pages.forEach(p => p.classList.remove('active'));
             const target = document.getElementById(pageId);
             if (target) target.classList.add('active');
 
-            // update nav active class
             navLinks.forEach(link => {
                 link.classList.remove('active');
                 if (link.dataset.page === pageId) {
                     link.classList.add('active');
                 }
             });
-            // scroll to top gently
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
@@ -485,18 +504,16 @@
             });
         });
 
-        // make switchPage globally accessible for inline onclick
         window.switchPage = switchPage;
 
-        // ---------- INSTAGRAM FEED : SIMULATED POSTS from @drelskicuts aesthetic ----------
-        // data inspired by modern barber instagram: fades, lineups, fresh cuts
+        // ---------- INSTAGRAM FEED: posts with reliable picsum images ----------
         const posts = [
-            { img: 'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22300%22%3E%3Crect width=%22300%22 height=%22300%22 fill=%22322b24%22/%3E%3Ccircle cx=%22150%22 cy=%22120%22 r=%2250%22 fill=%23473d32%22/%3E%3Crect x=%2290%22 y=%22175%22 width=%22120%22 height=%2250%22 rx=%2225%22 fill=%235a4d3d%22/%3E%3Crect x=%22135%22 y=%22225%22 width=%2230%22 height=%2240%22 fill=%23473d32%22/%3E%3C/svg%3E', caption: 'Fresh skin fade • razor sharp', likes: 142, comments: 18 },
-            { img: 'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22300%22%3E%3Crect width=%22300%22 height=%22300%22 fill=%2328221c%22/%3E%3Crect x=%2260%22 y=%2280%22 width=%22180%22 height=%22100%22 rx=%2220%22 fill=%234a3f33%22/%3E%3Ccircle cx=%22110%22 cy=%22130%22 r=%2220%22 fill=%2362594b%22/%3E%3Ccircle cx=%22190%22 cy=%22130%22 r=%2220%22 fill=%2362594b%22/%3E%3Crect x=%22120%22 y=%22200%22 width=%2260%22 height=%2250%22 rx=%2210%22 fill=%233d342a%22/%3E%3C/svg%3E', caption: 'Lineup & beard trim • clean', likes: 98, comments: 9 },
-            { img: 'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22300%22%3E%3Crect width=%22300%22 height=%22300%22 fill=%23221e19%22/%3E%3Crect x=%2250%22 y=%2270%22 width=%22200%22 height=%22130%22 rx=%2230%22 fill=%23433a30%22/%3E%3Ccircle cx=%22100%22 cy=%22120%22 r=%2228%22 fill=%235f5444%22/%3E%3Ccircle cx=%22200%22 cy=%22120%22 r=%2228%22 fill=%235f5444%22/%3E%3Crect x=%22120%22 y=%22210%22 width=%2260%22 height=%2050%22 fill=%233d342a%22/%3E%3C/svg%3E', caption: 'Mullet • modern texture', likes: 215, comments: 24 },
-            { img: 'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22300%22%3E%3Crect width=%22300%22 height=%22300%22 fill=%231f1b17%22/%3E%3Crect x=%2270%22 y=%2290%22 width=%22160%22 height=%22110%22 rx=%2215%22 fill=%234e4236%22/%3E%3Ccircle cx=%22120%22 cy=%22140%22 r=%2224%22 fill=%236b5f4e%22/%3E%3Ccircle cx=%22180%22 cy=%22140%22 r=%2224%22 fill=%236b5f4e%22/%3E%3Crect x=%22130%22 y=%22210%22 width=%2240%22 height=%2040%22 rx=%226%22 fill=%233d342a%22/%3E%3C/svg%3E', caption: 'Classic taper • VIP client', likes: 176, comments: 12 },
-            { img: 'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22300%22%3E%3Crect width=%22300%22 height=%22300%22 fill=%232a241f%22/%3E%3Ccircle cx=%22150%22 cy=%22110%22 r=%2248%22 fill=%23423a30%22/%3E%3Crect x=%2290%22 y=%22160%22 width=%22120%22 height=%2250%22 rx=%2220%22 fill=%23574b3d%22/%3E%3Crect x=%22130%22 y=%22215%22 width=%2240%22 height=%2045%22 fill=%233d342a%22/%3E%3C/svg%3E', caption: 'Mid drop fade • crispy', likes: 132, comments: 8 },
-            { img: 'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22300%22%3E%3Crect width=%22300%22 height=%22300%22 fill=%231d1915%22/%3E%3Crect x=%2250%22 y=%2280%22 width=%22200%22 height=%22120%22 rx=%2220%22 fill=%2343392e%22/%3E%3Ccircle cx=%22100%22 cy=%22130%22 r=%2220%22 fill=%23605544%22/%3E%3Ccircle cx=%22200%22 cy=%22130%22 r=%2220%22 fill=%23605544%22/%3E%3Crect x=%22120%22 y=%22200%22 width=%2260%22 height=%2050%22 rx=%2210%22 fill=%233d342a%22/%3E%3C/svg%3E', caption: 'Buzz cut • summer ready', likes: 87, comments: 5 }
+            { seed: 'barber1', caption: 'Precision skin fade • razor sharp finish', likes: 142, comments: 18 },
+            { seed: 'barber2', caption: 'Lineup & beard trim • clean execution', likes: 98, comments: 9 },
+            { seed: 'barber3', caption: 'Modern mullet • textured flow', likes: 215, comments: 24 },
+            { seed: 'barber4', caption: 'Classic taper • VIP client session', likes: 176, comments: 12 },
+            { seed: 'barber5', caption: 'Mid drop fade • crispy detail', likes: 132, comments: 8 },
+            { seed: 'barber6', caption: 'Buzz cut • summer ready refresh', likes: 87, comments: 5 }
         ];
 
         const grid = document.getElementById('instaGrid');
@@ -505,7 +522,7 @@
                 const card = document.createElement('div');
                 card.className = 'insta-card';
                 card.innerHTML = `
-                    <img src="${post.img}" alt="Instagram post" loading="lazy">
+                    <img src="https://picsum.photos/seed/${post.seed}/300/300" alt="Barber work by Drelski" loading="lazy">
                     <div class="card-body">
                         <div class="caption">${post.caption}</div>
                         <div class="meta">
@@ -517,15 +534,6 @@
                 grid.appendChild(card);
             });
         }
-
-        // ----- extra: if user clicks on instagram handle, open instagram (simulated) 
-        document.querySelector('.insta-handle a')?.addEventListener('click', (e) => {
-            e.preventDefault();
-            alert('Check out @drelskicuts on Instagram!');
-        });
-
-        // set default active page in case of reload
-        // (already active home)
     </script>
 </body>
 </html>
