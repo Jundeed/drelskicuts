@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Drelski Cuts · Mobile Barber Omaha</title>
+    <title>Drelski Cuts · Solo Barber Omaha</title>
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- Google Fonts: Inter for a clean, professional look -->
@@ -60,6 +60,7 @@
             display: flex;
             gap: 2rem;
             font-weight: 600;
+            flex-wrap: wrap;
         }
         .nav-links a {
             color: #cbc3b5;
@@ -129,6 +130,7 @@
             font-size: 0.95rem;
             letter-spacing: 0.3px;
             box-shadow: 0 8px 20px rgba(201, 168, 108, 0.2);
+            cursor: pointer;
         }
         .btn:hover {
             background: #dbb87a;
@@ -342,6 +344,62 @@
             color: #0b0b0b;
         }
 
+        /* --- payment page (page 4) --- */
+        .payment-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+        .payment-card {
+            background: #141310;
+            padding: 2.5rem 2rem;
+            border-radius: 32px;
+            border: 1px solid #2b2722;
+            flex: 1 1 220px;
+            text-align: center;
+            transition: 0.2s;
+        }
+        .payment-card:hover {
+            border-color: #b99b6b;
+            transform: translateY(-4px);
+        }
+        .payment-card .icon-large {
+            font-size: 2.8rem;
+            color: #c9a86c;
+            margin-bottom: 1rem;
+        }
+        .payment-card h4 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        .payment-card p {
+            color: #b0a89b;
+            font-size: 0.95rem;
+        }
+        .payment-card .highlight {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #f0ece4;
+            letter-spacing: -0.5px;
+        }
+        .payment-note {
+            background: #1e1c19;
+            padding: 1.5rem 2rem;
+            border-radius: 60px;
+            border: 1px solid #3a3630;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+        .payment-note i {
+            color: #c9a86c;
+            font-size: 1.3rem;
+        }
+
         /* footer */
         .footer {
             border-top: 1px solid #25221e;
@@ -355,6 +413,13 @@
         .footer i {
             color: #b99b6b;
             margin: 0 4px;
+        }
+        .footer a {
+            color: #b99b6b;
+            text-decoration: none;
+        }
+        .footer a:hover {
+            text-decoration: underline;
         }
 
         .info-badge {
@@ -381,20 +446,22 @@
         /* responsive */
         @media (max-width: 700px) {
             .navbar { flex-direction: column; gap: 1rem; align-items: flex-start; }
-            .nav-links { flex-wrap: wrap; gap: 1rem; }
+            .nav-links { gap: 1rem; }
             .hero-content h1 { font-size: 2.5rem; }
+            .payment-note { flex-direction: column; text-align: center; }
         }
     </style>
 </head>
 <body>
     <div class="container">
 
-        <!-- navigation / 3 pages -->
+        <!-- navigation / 4 pages -->
         <nav class="navbar">
             <div class="logo"><i class="fas fa-cut"></i> Drelski</div>
             <div class="nav-links">
                 <a href="#" class="active" data-page="home">Home</a>
                 <a href="#" data-page="instagram">Instagram</a>
+                <a href="#" data-page="payment">Payment</a>
                 <a href="#" data-page="contact">Contact</a>
             </div>
         </nav>
@@ -403,8 +470,8 @@
         <div id="home" class="page active">
             <div class="hero">
                 <div class="hero-content">
-                    <h1>Precision cuts.<br><span>Mobile service.</span></h1>
-                    <p>Sharp, clean cuts tailored to you. Solo barber based in Omaha, NE — I come to your home or host you at my private studio. Book your session today.</p>
+                    <h1>Clean cuts.<br><span>Your place or mine.</span></h1>
+                    <p>Clean, quality cuts — solo barber serving Omaha. I come to your home or host you at my private studio. Book your session today.</p>
                     <a href="#" class="btn" onclick="switchPage('contact')"><i class="fas fa-calendar-check" style="margin-right: 8px;"></i> Book appointment</a>
                 </div>
                 <div class="hero-image">
@@ -413,8 +480,8 @@
             </div>
             <!-- service badges -->
             <div class="info-badge">
-                <div><i class="fas fa-calendar-check"></i> By appointment only</div>
-                <div><i class="fas fa-home"></i> In-home or mobile service</div>
+                <div><i class="fas fa-user"></i> Solo barber</div>
+                <div><i class="fas fa-home"></i> In-home or studio service</div>
                 <div><i class="fas fa-cut"></i> Precision fades &amp; trims</div>
                 <div><i class="fas fa-map-pin"></i> Omaha, Nebraska</div>
             </div>
@@ -426,25 +493,53 @@
                 <h2 class="section-title"><i class="fab fa-instagram"></i> Portfolio</h2>
                 <div class="insta-handle">
                     <i class="fas fa-at"></i> 
-                    <a href="https://instagram.com/drelskicuts" target="_blank" rel="noopener noreferrer">
-                        @drelskicuts <i class="fas fa-external-link-alt" style="font-size: 0.7rem; margin-left: 4px;"></i>
+                    <a href="https://instagram.com/drelskicutz" target="_blank" rel="noopener noreferrer">
+                        @drelskicutz <i class="fas fa-external-link-alt" style="font-size: 0.7rem; margin-left: 4px;"></i>
                     </a>
                 </div>
             </div>
             <p style="color: #a09889; margin-bottom: 2rem;">Recent work from the chair. Follow for daily updates and booking info.</p>
 
-            <!-- Instagram grid – posts displayed with real placeholder images -->
+            <!-- Instagram grid – posts displayed with placeholder images -->
             <div class="insta-grid" id="instaGrid">
                 <!-- cards injected by JS -->
             </div>
             <div style="text-align: center; margin-top: 2.5rem;">
-                <a href="https://instagram.com/drelskicuts" target="_blank" rel="noopener noreferrer" class="btn" style="background: transparent; border: 1px solid #b99b6b; color: #b99b6b; box-shadow: none;">
-                    <i class="fab fa-instagram"></i> Follow @drelskicuts
+                <a href="https://instagram.com/drelskicutz" target="_blank" rel="noopener noreferrer" class="btn" style="background: transparent; border: 1px solid #b99b6b; color: #b99b6b; box-shadow: none;">
+                    <i class="fab fa-instagram"></i> Follow @drelskicutz
                 </a>
             </div>
         </div>
 
-        <!-- PAGE 3: CONTACT -->
+        <!-- PAGE 3: PAYMENT & PRICING -->
+        <div id="payment" class="page">
+            <h2 class="section-title"><i class="fas fa-credit-card"></i> Payment & Pricing</h2>
+            <p style="color: #a09889; margin-bottom: 0.5rem;">Simple, transparent pricing. House calls available.</p>
+            
+            <div class="payment-grid">
+                <div class="payment-card">
+                    <div class="icon-large"><i class="fas fa-dollar-sign"></i></div>
+                    <div class="highlight">$20</div>
+                    <p>Base rate per cut</p>
+                </div>
+                <div class="payment-card">
+                    <div class="icon-large"><i class="fas fa-wallet"></i></div>
+                    <h4>Accepted Payments</h4>
+                    <p>Cash, Apple Pay, and Cash App</p>
+                </div>
+                <div class="payment-card">
+                    <div class="icon-large"><i class="fas fa-car"></i></div>
+                    <h4>House Calls</h4>
+                    <p>I come to you — available across Omaha 🚙</p>
+                </div>
+            </div>
+            <div class="payment-note">
+                <i class="fas fa-check-circle"></i> 
+                <span>Book with confidence — pay at time of service. Cash, Apple Pay, or Cash App.</span>
+            </div>
+        </div>
+
+        <!-- PAGE 4: CONTACT -->
         <div id="contact" class="page">
             <h2 class="section-title"><i class="fas fa-address-card"></i> Contact</h2>
             <p style="color: #a09889; margin-bottom: 0.5rem;">Reach out to book your appointment. Mobile service available across Omaha.</p>
@@ -453,9 +548,9 @@
                     <h3>Drelski Cuts</h3>
                     <div class="detail"><i class="fas fa-map-pin"></i> <span>📍 Omaha, Nebraska</span></div>
                     <div class="detail"><i class="fas fa-phone-alt"></i> <span>📞 +1 (555) 000-0000</span></div>
-                    <div class="detail"><i class="fas fa-envelope"></i> <span>✉️ info@drelskicuts.com</span></div>
+                    <div class="detail"><i class="fas fa-envelope"></i> <span>✉️ info@drelskicutz.com</span></div>
                     <div class="social-links">
-                        <a href="https://instagram.com/drelskicuts" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                        <a href="https://instagram.com/drelskicutz" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
                         <a href="#"><i class="fab fa-tiktok"></i></a>
                         <a href="#"><i class="fab fa-youtube"></i></a>
                     </div>
@@ -473,7 +568,7 @@
         </div>
 
         <footer class="footer">
-            <i class="fas fa-cut"></i> Drelski Cuts · Mobile Barber · Omaha, NE · <i class="fab fa-instagram"></i> <a href="https://instagram.com/drelskicuts" target="_blank" rel="noopener noreferrer" style="color: #b99b6b; text-decoration: none;">@drelskicuts</a>
+            <i class="fas fa-cut"></i> Drelski Cuts · Solo Barber · Omaha, NE · <i class="fab fa-instagram"></i> <a href="https://instagram.com/drelskicutz" target="_blank" rel="noopener noreferrer">@drelskicutz</a>
         </footer>
     </div>
 
