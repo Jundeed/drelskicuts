@@ -230,22 +230,58 @@
             margin-right: 6px;
         }
         .reel-thumb {
+            position: relative;
             aspect-ratio: 1/1;
             background: #1f1d1a;
+            border-radius: 24px 24px 0 0;
+            overflow: hidden;
+            border-bottom: 2px solid #2b2824;
+        }
+        .reel-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .reel-thumb .play-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 50%;
+            padding: 0.8rem 1.0rem;
+            color: #fff;
+            font-size: 1.8rem;
+            border: 2px solid rgba(255, 255, 255, 0.85);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.2s;
+        }
+        .insta-card:hover .play-overlay {
+            background: rgba(201, 168, 108, 0.85);
+            border-color: #fff;
+            transform: translate(-50%, -50%) scale(1.05);
+        }
+        .reel-thumb .play-overlay i {
+            color: #fff;
+        }
+        .reel-thumb .fallback-icon {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            border-radius: 24px 24px 0 0;
-            border-bottom: 2px solid #2b2824;
+            width: 100%;
+            height: 100%;
         }
-        .reel-thumb i {
+        .reel-thumb .fallback-icon i {
             font-size: 4rem;
             color: #c9a86c;
             opacity: 0.9;
             margin-bottom: 0.5rem;
         }
-        .reel-thumb span {
+        .reel-thumb .fallback-icon span {
             color: #7f776b;
             font-size: 0.75rem;
             letter-spacing: 0.5px;
@@ -483,7 +519,6 @@
                     <a href="#" class="btn" onclick="switchPage('contact')"><i class="fas fa-calendar-check" style="margin-right: 8px;"></i> Book appointment</a>
                 </div>
                 <div class="hero-image">
-                    <!-- 👇 REPLACE src with your hero image URL if needed -->
                     <img id="heroImage" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%23231f1a'/%3E%3Ccircle cx='200' cy='120' r='44' fill='%233d352c'/%3E%3Crect x='140' y='170' width='120' height='60' rx='30' fill='%234a3f34'/%3E%3Crect x='180' y='230' width='40' height='50' fill='%233d352c'/%3E%3Ccircle cx='270' cy='120' r='18' fill='%23534a3e'/%3E%3Ccircle cx='130' cy='120' r='18' fill='%23534a3e'/%3E%3C/svg%3E" alt="Barber chair">
                 </div>
             </div>
@@ -585,18 +620,47 @@
         const heroImageUrl = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%23231f1a'/%3E%3Ccircle cx='200' cy='120' r='44' fill='%233d352c'/%3E%3Crect x='140' y='170' width='120' height='60' rx='30' fill='%234a3f34'/%3E%3Crect x='180' y='230' width='40' height='50' fill='%233d352c'/%3E%3Ccircle cx='270' cy='120' r='18' fill='%23534a3e'/%3E%3Ccircle cx='130' cy='120' r='18' fill='%23534a3e'/%3E%3C/svg%3E";
 
         // ================================================================
-        // 🎬 INSTAGRAM REELS – all 9 links you provided
+        // 🎬 INSTAGRAM REELS – first one now uses your Imgur image!
         // ================================================================
         const reels = [
-            { url: 'https://www.instagram.com/reel/Db-ASNDuK_Q/', caption: 'Yk I keep it clean 🧼 #haircut #viral #omaha' },
-            { url: 'https://www.instagram.com/reel/DbRrggEtjsp/', caption: 'Bday cut 🥳 #haircut #viral #omaha #midtaper' },
-            { url: 'https://www.instagram.com/reel/DbKhDwuOVf9/', caption: '5 cutzzz #haircut #viral #omaha #midtaper #burstfade' },
-            { url: 'https://www.instagram.com/reel/DazKjtMN6BJ/', caption: 'Spice ball #haircut #viral #omaha' },
-            { url: 'https://www.instagram.com/reel/DaE3a-ztKdA/', caption: 'Cool lil 10 guard with a high taper. 💈 #haircut #viral #omaha' },
-            { url: 'https://www.instagram.com/reel/DZMius-Mb4h/', caption: 'Bro is not white 😔 #haircut #viral #midtaper' },
-            { url: 'https://www.instagram.com/reel/DWH3uJgOalp/', caption: 'Dark hook >> #haircut #viral #omaha #midtaper' },
-            { url: 'https://www.instagram.com/reel/DSURRyzDhYA/', caption: 'Fresh cut alert 🔥 #haircut #viral' },
-            { url: 'https://www.instagram.com/reel/DQQWboBDQfM/', caption: 'Busy 🤕 #haircut #viral #omaha' }
+            { 
+                url: 'https://www.instagram.com/reel/Db-ASNDuK_Q/', 
+                caption: 'Yk I keep it clean 🧼 #haircut #viral #omaha',
+                image: 'https://i.imgur.com/qu13VJV.png'  // ✅ YOUR IMGUR IMAGE
+            },
+            { 
+                url: 'https://www.instagram.com/reel/DbRrggEtjsp/', 
+                caption: 'Bday cut 🥳 #haircut #viral #omaha #midtaper'
+                // No image yet – will show play button icon
+            },
+            { 
+                url: 'https://www.instagram.com/reel/DbKhDwuOVf9/', 
+                caption: '5 cutzzz #haircut #viral #omaha #midtaper #burstfade' 
+            },
+            { 
+                url: 'https://www.instagram.com/reel/DazKjtMN6BJ/', 
+                caption: 'Spice ball #haircut #viral #omaha' 
+            },
+            { 
+                url: 'https://www.instagram.com/reel/DaE3a-ztKdA/', 
+                caption: 'Cool lil 10 guard with a high taper. 💈 #haircut #viral #omaha' 
+            },
+            { 
+                url: 'https://www.instagram.com/reel/DZMius-Mb4h/', 
+                caption: 'Bro is not white 😔 #haircut #viral #midtaper' 
+            },
+            { 
+                url: 'https://www.instagram.com/reel/DWH3uJgOalp/', 
+                caption: 'Dark hook >> #haircut #viral #omaha #midtaper' 
+            },
+            { 
+                url: 'https://www.instagram.com/reel/DSURRyzDhYA/', 
+                caption: 'Fresh cut alert 🔥 #haircut #viral' 
+            },
+            { 
+                url: 'https://www.instagram.com/reel/DQQWboBDQfM/', 
+                caption: 'Busy 🤕 #haircut #viral #omaha' 
+            }
         ];
 
         // ================================================================
@@ -617,11 +681,31 @@
                     card.href = reel.url;
                     card.target = '_blank';
                     card.rel = 'noopener noreferrer';
+
+                    // Thumbnail: show image if provided, otherwise fallback icon
+                    let thumbHTML = '';
+                    if (reel.image) {
+                        thumbHTML = `
+                            <div class="reel-thumb">
+                                <img src="${reel.image}" alt="Reel thumbnail" loading="lazy">
+                                <div class="play-overlay">
+                                    <i class="fas fa-play"></i>
+                                </div>
+                            </div>
+                        `;
+                    } else {
+                        thumbHTML = `
+                            <div class="reel-thumb">
+                                <div class="fallback-icon">
+                                    <i class="fas fa-play-circle"></i>
+                                    <span><i class="fab fa-instagram"></i> Watch reel</span>
+                                </div>
+                            </div>
+                        `;
+                    }
+
                     card.innerHTML = `
-                        <div class="reel-thumb">
-                            <i class="fas fa-play-circle"></i>
-                            <span><i class="fab fa-instagram"></i> Watch reel</span>
-                        </div>
+                        ${thumbHTML}
                         <div class="card-body">
                             <div class="caption">${reel.caption}</div>
                             <div class="meta">
@@ -662,7 +746,6 @@
             });
         });
 
-        // Make switchPage globally accessible for inline onclick
         window.switchPage = switchPage;
     </script>
 </body>
