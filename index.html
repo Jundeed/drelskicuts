@@ -530,7 +530,7 @@
             </div>
         </div>
 
-        <!-- PAGE 2: INSTAGRAM FEED (ALL REELS, NO STOCK IMAGES) -->
+        <!-- PAGE 2: INSTAGRAM FEED (ALL REELS WITH YOUR IMGUR IMAGES) -->
         <div id="instagram" class="page">
             <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center;">
                 <h2 class="section-title"><i class="fab fa-instagram"></i> Portfolio</h2>
@@ -620,46 +620,53 @@
         const heroImageUrl = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%23231f1a'/%3E%3Ccircle cx='200' cy='120' r='44' fill='%233d352c'/%3E%3Crect x='140' y='170' width='120' height='60' rx='30' fill='%234a3f34'/%3E%3Crect x='180' y='230' width='40' height='50' fill='%233d352c'/%3E%3Ccircle cx='270' cy='120' r='18' fill='%23534a3e'/%3E%3Ccircle cx='130' cy='120' r='18' fill='%23534a3e'/%3E%3C/svg%3E";
 
         // ================================================================
-        // 🎬 INSTAGRAM REELS – first one now uses your Imgur image!
+        // 🎬 INSTAGRAM REELS – all 9 with your Imgur thumbnails
         // ================================================================
         const reels = [
             { 
                 url: 'https://www.instagram.com/reel/Db-ASNDuK_Q/', 
                 caption: 'Yk I keep it clean 🧼 #haircut #viral #omaha',
-                image: 'https://i.imgur.com/qu13VJV.png'  // ✅ YOUR IMGUR IMAGE
+                image: 'https://i.imgur.com/qu13VJV.png'  // Reel 1
             },
             { 
                 url: 'https://www.instagram.com/reel/DbRrggEtjsp/', 
-                caption: 'Bday cut 🥳 #haircut #viral #omaha #midtaper'
-                // No image yet – will show play button icon
+                caption: 'Bday cut 🥳 #haircut #viral #omaha #midtaper',
+                image: 'https://i.imgur.com/TnxDNjY.png'  // Reel 2
             },
             { 
                 url: 'https://www.instagram.com/reel/DbKhDwuOVf9/', 
-                caption: '5 cutzzz #haircut #viral #omaha #midtaper #burstfade' 
+                caption: '5 cutzzz #haircut #viral #omaha #midtaper #burstfade',
+                image: 'https://i.imgur.com/l5AmKTK.png'  // Reel 3
             },
             { 
                 url: 'https://www.instagram.com/reel/DazKjtMN6BJ/', 
-                caption: 'Spice ball #haircut #viral #omaha' 
+                caption: 'Spice ball #haircut #viral #omaha',
+                image: 'https://i.imgur.com/KffZXOi.png'  // Reel 4
             },
             { 
                 url: 'https://www.instagram.com/reel/DaE3a-ztKdA/', 
-                caption: 'Cool lil 10 guard with a high taper. 💈 #haircut #viral #omaha' 
+                caption: 'Cool lil 10 guard with a high taper. 💈 #haircut #viral #omaha',
+                image: 'https://i.imgur.com/g6j8KFI.png'  // Reel 5
             },
             { 
                 url: 'https://www.instagram.com/reel/DZMius-Mb4h/', 
-                caption: 'Bro is not white 😔 #haircut #viral #midtaper' 
+                caption: 'Bro is not white 😔 #haircut #viral #midtaper',
+                image: 'https://i.imgur.com/UX6acsn.png'  // Reel 6
             },
             { 
                 url: 'https://www.instagram.com/reel/DWH3uJgOalp/', 
-                caption: 'Dark hook >> #haircut #viral #omaha #midtaper' 
+                caption: 'Dark hook >> #haircut #viral #omaha #midtaper',
+                image: 'https://i.imgur.com/xgUrgb4.png'  // Reel 7
             },
             { 
                 url: 'https://www.instagram.com/reel/DSURRyzDhYA/', 
-                caption: 'Fresh cut alert 🔥 #haircut #viral' 
+                caption: 'Fresh cut alert 🔥 #haircut #viral',
+                image: 'https://i.imgur.com/tfgdV6H.png'  // Reel 8
             },
             { 
                 url: 'https://www.instagram.com/reel/DQQWboBDQfM/', 
-                caption: 'Busy 🤕 #haircut #viral #omaha' 
+                caption: 'Busy 🤕 #haircut #viral #omaha',
+                image: 'https://i.imgur.com/hHqrdMm.png'  // Reel 9
             }
         ];
 
@@ -682,27 +689,15 @@
                     card.target = '_blank';
                     card.rel = 'noopener noreferrer';
 
-                    // Thumbnail: show image if provided, otherwise fallback icon
-                    let thumbHTML = '';
-                    if (reel.image) {
-                        thumbHTML = `
-                            <div class="reel-thumb">
-                                <img src="${reel.image}" alt="Reel thumbnail" loading="lazy">
-                                <div class="play-overlay">
-                                    <i class="fas fa-play"></i>
-                                </div>
+                    // Thumbnail with play button overlay
+                    const thumbHTML = `
+                        <div class="reel-thumb">
+                            <img src="${reel.image}" alt="Reel thumbnail" loading="lazy">
+                            <div class="play-overlay">
+                                <i class="fas fa-play"></i>
                             </div>
-                        `;
-                    } else {
-                        thumbHTML = `
-                            <div class="reel-thumb">
-                                <div class="fallback-icon">
-                                    <i class="fas fa-play-circle"></i>
-                                    <span><i class="fab fa-instagram"></i> Watch reel</span>
-                                </div>
-                            </div>
-                        `;
-                    }
+                        </div>
+                    `;
 
                     card.innerHTML = `
                         ${thumbHTML}
